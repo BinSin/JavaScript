@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var grades = {"egoing": 10, 'k8805': 6, 'sorialgi': 80}; // 객체 생성
+		/*
+		var grades = {};
+		// var grades = new Object();
+		grades['egoing'] = 10;
+		grades['k8805'] = 6;
+		grades['sorialgi'] = 80;
+		*/
+		alert(grades.sorialgi); // 객체에 접근
+
+		for(key in grades) {
+			document.write("key : " + key + "\t value : " + grades[key] + "<br/>");
+		}
+
+		var scores = {
+			'list' : {'bin' : 20, 'sin': 30, 'jjang': 40},
+			'show' : function() {
+				//alert('Hello world');
+				for(name in this.list) {
+					console.log(name, this.list[name]);
+				}
+				console.log(this.list); // 객체를 가리키는 변수
+			}
+		}
+		alert(scores['show']()); // 함수호출시 () 주의
+		//scores.show();
+	</script>
+</body>
+</html>
