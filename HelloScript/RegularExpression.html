@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var pattern = /a/;
+	var pattern = /a./; // .은 1문자 -> a뒤에 문자 하나도 같이 							추출된다. -> ..은 2문자
+	var str = 'abcdef';
+	// var pattern = new RegExp('a');
+	// a라는 텍스트를 찾아내는 정규표현식
+	console.log(pattern.exec('abcdef')); // exec : 추출
+	console.log(pattern.exec('bcdefg'));
+	console.log(pattern.test('abcdef')); // test : 존재 유무 테스트
+	str.match(pattern); // 같은 문자 리턴
+	str.replace(pattern, 'A'); // a와 같은 문자의 맨앞을 A로 									  바꿔서 리턴
+	var xi = /a/;
+	var oi = /a/i;
+	"Abcdef".match(oi); // i는 대소문자 구별 안한다.
+
+	var xg = /a/;
+	var og = /a/g;
+	"abcdefaa".match(og); // 검색된 모든 결과 리턴
+
+	var og = /a/ig;
+	"AaAaasdAa".match(og); // 대소문자 구별 안하고 모든 결과 리턴
+
+	var pattern = /(\w+)\s(\w+)/;
+	// \w : A~Z, a~z, 0~9
+	// + : 앞에 있는 문자가 하나 이상인 경우 이 패턴이 유효해진다.
+	var str = "coding everybody";
+	var result = str.replace(pattern, "$2, $1");
+	// 1$ : 첫번째인자, 2$ : 두번쨰인자 (치환)
+	// -> everybody, coding
+	console.log(result);
+
+	var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
+	var content = "BinSin's GitHub : https://github.com/BinSin , google : http://google.com ";
+	var result = content.replace(urlPattern, function(url) {
+		return '<a href="'+url+'">'+url+'</a>';
+	});
+	document.write(result);
+	// 사이트 링크화
+
+	// 시작화 해주는 사이트
+	// https://regexper.com/#(%5Cw%2B)%5Cs(%5Cw%2B)
+	// 정규표현식 빌더
+	// https://regexr.com/
+</script>
+</body>
+</html>
