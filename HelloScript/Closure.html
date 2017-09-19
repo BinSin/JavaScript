@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      // closure : 내부함수가 외부함수의 context에 접근할 수 있는 것
+      function outter() {
+        var title = 'coding everbody';
+        return function() {
+          alert(title);
+        }
+      }
+      inner = outter();
+      inner(); // 외부함수가 소멸된 이후에도
+                  //내부함수가 외부함수에 접근할 수 있다.
+
+      // private 속성
+     function factory_movie(title) {
+       return {
+         get_title : function (){
+           return title;
+         },
+         set_title : function(_title){
+           title = _title
+         }
+       }
+     }
+     ghost = factory_movie('Ghost in the shell');
+     matrix = factory_movie('Matrix');
+
+     alert(ghost.get_title());
+     alert(matrix.get_title());
+
+     ghost.set_title('공각기동대');
+
+     alert(ghost.get_title());
+     alert(matrix.get_title());
+
+/*
+// for문은 외부함수가 아니므로 for문이 다 끝난 후
+// i=5가 되므로 return 에는 5만 입력된다.
+// 따라서 55555 가 출력된다.
+     var arr = []
+      for(var i = 0; i < 5; i++){
+        arr[i] = function(){
+        return i;
+      }
+    }
+
+    for(var index in arr) {
+      console.log(arr[index]());
+  }
+  */
+     var arr = []
+     for(var i=0; i<5; i++) {
+       arr[i] = function(id) {
+         return function() {
+           return id;
+         }
+       }(i);
+       // id값이 i가 된다.
+     }
+     for(var index in arr) {
+       document.write(arr[index]());
+     }
+    </script>
+  </body>
+</html>
