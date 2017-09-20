@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    // 객체 -> 속성(메서드)
+    function sum() {
+      var _sum = 0;
+      for(name in this) {
+          _sum += this[name]
+      }
+      return _sum;
+    }
+
+    c1 = {val1 : 1, val2 : 2, val3 : 3}
+    c2 = {v1 : 10, v2 : 50, v3 : 100, v4 : 25}
+
+    // apply를 사용하면 this값을 활용할 수 있다.
+    alert(sum.apply(c1));
+    alert(sum.apply(c2));
+    </script>
+  </body>
+</html>
