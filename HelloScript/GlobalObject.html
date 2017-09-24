@@ -13,10 +13,10 @@
   // (객체) . (속성) -> 함수
   //             (메소드)
   // 전역객체 : 생략했을 때 기본적으로 사용되는 객체
-  windows.func();
+  window.func();
 
   //
-  var o = {'func' : function(0) {
+  var o = {'func' : function() {
     alert('Hello?');
   }}
   o.func();
