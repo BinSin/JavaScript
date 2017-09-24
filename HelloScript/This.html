@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    // this는 함수 내에서 함수 호출 context를 의미한다.
+    // context(맥락) : 상황에 따라 달라진다.
+    // 함수 호출에 따라 달라진다.
+
+    // 함수호출
+    function func() {
+      // 전역객체 window === this
+      if(window === this) {
+        document.write("window === this <br/>");
+      }
+    }
+    func()
+
+    // 메소드호출
+    var o = {
+      func : function() {
+        // 객체소속인 메소드의 this === 객체
+        if(o === this) {
+          document.write("o === this <br/>");
+        }
+      }
+    }
+    o.func();
+
+    // 생성자의 호출
+    // 생성자안 this = 그 생성자가 만든 객체
+    var funcThis = null;
+    function Func() {
+      FuncThis = this;
+    }
+    var o1 = Func();
+    // this = 전역객체
+    if(FuncThis === window) {
+      document.write('window <br/>');
+    }
+    var o2 = new Func();
+    // if(window === o2) {
+    if(FuncThis === o2) {
+      document.write('o2 <br/>');
+    }
+    // 생성자를 호출하게되면 이 생성자에 대한
+    // 호출이 모두 끝나야 o2에 객체가 할당된다.
+    // o2 == undefined
+
+    // Literal
+    // 함수 리터럴 function sum() {}, new Function() {}
+    // 객체 리터럴 var o = { }, new Object
+    // 배열 리터럴 var a = [ ], new Array
+
+    // apply, call을 이용한 this값 제어
+    var o = {}
+    var p = {}
+    function func() {
+      switch(this) {
+        case o:
+          document.write('o <br/>');
+          break;
+        case p:
+          document.write('p <br/>');
+          break;
+        case window:
+          document.write('window <br/>');
+          break;
+      }
+    }
+    func();
+    func.apply(o); // 이 함수 안의 this = o
+    func.apply(p); // 이 함수 안의 this = p
+
+    // 객체 -> 주인<master>, 메소드 -> 노예<slave>
+    </script>
+  </body>
+</html>
