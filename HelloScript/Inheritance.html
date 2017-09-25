@@ -11,7 +11,7 @@
     }
     Person.prototype.name = null;
     Person.prototype.introduce = function() {
-      return 'My name is ' + this.name;
+      return 'My name nickname is ' + this.name;
     }
     function Programmer(name) {
       this.name = name;
@@ -21,12 +21,24 @@
     Programmer.prototype = new Person();
     // Programmer 객체에만 coding 기능 추가
     Programmer.prototype.coding = function() {
-      return "hello world";;
+      return "programmer";
+    }
+
+    function Designer(name) {
+      this.name = name;
+    }
+    Designer.prototype = new Person();
+    Designer.prototype.design = function() {
+      return "designer";
     }
 
     var p1 = new Programmer('BinSin');
     document.write(p1.introduce() + "<br/>");
     document.write(p1.coding() + "<br/>");
+
+    var p2 = new Designer("YongJang");
+    document.write(p2.introduce() + "<br/>");
+    document.write(p2.design() + "<br/>");
 
     </script>
   </body>
