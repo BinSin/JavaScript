@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    function Person(name) {
+      this.name = name;
+    }
+    Person.prototype.name = null;
+    Person.prototype.introduce = function() {
+      return 'My name is ' + this.name;
+    }
+    function Programmer(name) {
+      this.name = name;
+    }
+    // inheritance
+    // prototype으로 되있는 것들을 상속 받는다.
+    Programmer.prototype = new Person();
+    // Programmer 객체에만 coding 기능 추가
+    Programmer.prototype.coding = function() {
+      return "hello world";;
+    }
+
+    var p1 = new Programmer('BinSin');
+    document.write(p1.introduce() + "<br/>");
+    document.write(p1.coding() + "<br/>");
+
+    </script>
+  </body>
+</html>
