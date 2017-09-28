@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    /*
+    var arr = new Array('seoul', 'new york', 'busan', 'daejen', 'daegu');
+    function getRandomValueFromArray(arr) {
+      var index = Math.floor(arr.length * Math.random());
+      var result = arr[index];
+      return result;
+    }
+    document.write(getRandomValueFromArray(arr));
+    */
+
+    Array.prototype.random = function() {
+        var index = Math.floor(this.length * Math.random());
+        return this[index];
+    }
+    var arr = new Array('seoul', 'new york', 'busan', 'daejen', 'daegu');
+    document.write(arr.random());
+    
+    </script>
+  </body>
+</html>
