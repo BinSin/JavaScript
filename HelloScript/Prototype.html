@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    // Prototype Chain
+    function Ultra() {}
+    Ultra.prototype.ultraProp = true;
+
+    function Super() {}
+    var t = new Ultra();
+    t.ultraProp = 4;
+    Super.prototype = t;
+
+    function Sub() {}
+    var s = new Super();
+  //  s.ultraProp = 3;
+    Sub.prototype = s;
+
+    var o = new Sub();
+
+    document.write(o.ultraProp);
+
+
+    </script>
+  </body>
+</html>
