@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    // 원시(기본) 데이터 타입(primitive type)
+    // 숫자, 문자열, boolean, null, undefined
+    // 숫자 : Number
+    // 문자열 : String
+    // boolean : Boolean
+    // null, undefined는 없다.
+    // 이것들은 wrapper 객체로 감싸져 있다.
+
+    // 객체(참조) 데이터 타입
+    // 그 외
+
+    // wrapper Object
+    // 문자열은 임시로 문자열 객체를 만들고 사용이 끝나면 제거한다.
+    // 따라서 문자열은 원시 데이터이다.
+    var str = 'coding'; // new String('coding');
+    console.log(str.length);
+    console.log(str.charAt(0));
+
+    // 원시 데이터 타입을 객체처럼 사용하려 할 때
+    // 자바스크립트 내부적으로 자동으로 만들어지는 객체를
+    // wrapper object 라고 한다.
+    var str2 = 'coding';
+    str2.prop = 'everybody';
+    // prop를 하는 순간 내부적으로 String 객체가 만들어진다.
+    // prop 프로터피는 이 객체에 저장되고 이 객체는 곧 제거된다.
+    console.log(str2.prop);
+    </script>
+  </body>
+</html>
