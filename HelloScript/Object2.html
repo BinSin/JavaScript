@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    // Mozilla
+    //Object.keys()
+    // prototype이 없는 것은 keys로 받는다.
+    // keys는 최신버전에만 쓸 수 있다.
+    var arr = ["a", "b", "c"];
+    document.write(Object.keys(arr) + "<br/>");
+
+    //Object.prototype.toString()
+    //Object.prototype의 소속이므로 toString() 사용
+    // toString은 모든 버전에서 쓸 수 있다.
+    var o = new Object();
+    document.write(o.toString() + "<br/>");
+
+    var a = new Array(1, 2, 3);
+    document.write(a.toString() + "<br/>");
+
+    // contain : 입력한 value가 있는지 검사
+    Object.prototype.contain = function(needle) {
+      for(var name in this) {
+        // == 타입 상관없이 비교 / === 타입까지 비교
+        if(this[name] === needle) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    var q = {'name' : 'BinSin', ' city' : 'seoul' };
+    document.write(q.contain('BinggSin') + "<br/>");
+    var w = ['BingSin', 'YongJang', 'JungHyeon'];
+    document.write(w.contain('YongJang') + "<br/>");
+    // 이런 확장하면 편리하지만 모든 객체에 영향을 준다.
+    for(var name in q) {
+      // contain 까지 나온다.
+      // 하지만 hasOwnProperty를 이용하면 된다.
+      // 그 객체에 직접 정의한 property를 분별할 수 있다.
+        if(q.hasOwnProperty(name)) {
+        document.write(name + "<br/>");
+      }
+    }
+
+    </script>
+  </body>
+</html>
