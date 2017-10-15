@@ -1,0 +1,25 @@
+/*
+  Author : BinSin
+  https://www.hackerrank.com/challenges/js10-try-catch-and-finally
+/*
+
+function reverseString(s) {
+  try {
+   // split은 string을 배열로 나눠준다.
+   // split("") : 문자 하나씩 배열로 나눈다.
+   // split("k") : k를 기준으로 나눈다.
+   // split() : 문자열 전체가 배열에 넣어진다.
+
+   // split으로 문자를 나눈 뒤 reverse로 거꾸로 하고
+   // join으로 모든 문자배열을 하나로 묶는다.
+
+    console.log(s.split("").reverse().join(""));
+  }
+  catch(e) {
+    console.log(e.message);
+    console.log(s);
+  }
+  finally {
+
+  }
+}
